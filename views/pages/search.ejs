@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- /* include('../partials/header'); */%>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="jumbotron">
+        <h3>Search Title</h3>
+        <form class="" action="/search/title" method="post">
+          <input type="text" name="title" value="">
+          <input type="submit" name="" value="Search">
+        </form>
+        <h3>Search Categories</h3>
+        <form class="" action="/search/category" method="post">
+          <select name="category">
+            <option value=''></option>
+            <% catg.forEach( post => { %>
+                <% post.categories.forEach( cat => { %>
+                    <option value='<%= cat %>'><%= cat %></option>
+              <% }); %>
+            <% }); %>
+
+          </select>
+          <input type="submit" name="" value="Search">
+        </form>
+      </div>
+    </div>
+
+
+    <div class="col-sm-8">
+      <div class="jumbotron">
+        <h2>Posts</h2>
+        <div>
+          <% posts.forEach( post => { %>
+            <div>
+              <a href='<%= post.link %>' target='_blank'><h4><%= post.title %></h4></a>
+              <p><%= post.pubDate %> | <%= post['dc:creator'] %> | Categories: <strong><%= post.categories %></strong></p>
+              <p><%= post.contentSnippet %></p>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <h1>The Fact Site</h1>
+    <p>Welcome to The Fact Site</p>
+
+    <h2>Posts</h2>
+    <div>
+      <% posts.forEach( post => { %>
+        <div>
+          <a href='<%= post.link %>' target='_blank'><h4><%= post.title %></h4></a>
+          <p><%= post.pubDate %> | <%= post['dc:creator'] %> | Categories: <strong><%= post.categories %></strong></p>
+          <p><%= post.contentSnippet %></p>
+        </div>
+      <% }); %>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

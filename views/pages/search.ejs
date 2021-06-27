@@ -19,7 +19,7 @@
           <input type="text" name="title" value="">
           <input type="submit" name="" value="Search">
         </form>
-        <h3>Search Categories</h3>
+        <h3>Search Category</h3>
         <form class="" action="/search/category" method="post">
           <select name="category">
             <option value=''></option>
@@ -45,6 +45,7 @@
               <a href='<%= post.link %>' target='_blank'><h4><%= post.title %></h4></a>
               <p><%= post.pubDate %> | <%= post['dc:creator'] %> | Categories: <strong><%= post.categories %></strong></p>
               <p><%= post.contentSnippet %></p>
+              <hr>
             </div>
           <% }); %>
         </div>
